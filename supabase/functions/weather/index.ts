@@ -15,9 +15,7 @@ serve(async (req) => {
   }
 
   try {
-    const { city } = await req.json();
-    const url = new URL(req.url);
-    const path = url.pathname.split('/').pop();
+    const { city, path } = await req.json();
 
     if (!city) {
       return new Response(

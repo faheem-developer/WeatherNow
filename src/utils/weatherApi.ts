@@ -1,12 +1,12 @@
+
 import { CurrentWeather, ForecastData, ForecastItem } from "@/types/weather";
 import { supabase } from "@/integrations/supabase/client";
 
 export const fetchCurrentWeather = async (city: string): Promise<CurrentWeather> => {
   try {
     const { data, error } = await supabase.functions.invoke("weather", {
-      body: { city },
-      method: "GET",
-      params: { path: "current" }
+      body: { city, path: "current" },
+      method: "POST"
     });
     
     if (error) {
@@ -34,9 +34,8 @@ export const fetchCurrentWeather = async (city: string): Promise<CurrentWeather>
 export const fetchForecast = async (city: string): Promise<ForecastData> => {
   try {
     const { data, error } = await supabase.functions.invoke("weather", {
-      body: { city },
-      method: "GET",
-      params: { path: "forecast" }
+      body: { city, path: "forecast" },
+      method: "POST"
     });
     
     if (error) {
