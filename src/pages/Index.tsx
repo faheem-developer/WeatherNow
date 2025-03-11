@@ -9,6 +9,7 @@ import ForecastCard from "@/components/ForecastCard";
 import RecentSearches from "@/components/RecentSearches";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Cloud, Calendar, Search, History, Smartphone, SunMoon, AlertCircle } from "lucide-react";
 
 const MAX_RECENT_SEARCHES = 5;
 const STORAGE_KEY = "recent-weather-searches";
@@ -125,6 +126,100 @@ const Index = () => {
             )}
           </div>
         )}
+        
+        {/* Features Section */}
+        <section className="mt-24 animate-fade-up" style={{ animationDelay: "200ms" }}>
+          <h2 className="text-2xl font-medium text-center mb-8 text-gray-800">
+            Features
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <Cloud className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">Real-time Weather</h3>
+              <p className="text-gray-600 text-sm">Get current weather conditions for any city worldwide</p>
+            </div>
+            
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <Calendar className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">5-Day Forecast</h3>
+              <p className="text-gray-600 text-sm">Plan ahead with accurate 5-day weather predictions</p>
+            </div>
+            
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <Search className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">Search by City</h3>
+              <p className="text-gray-600 text-sm">Find weather information for any location easily</p>
+            </div>
+            
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <History className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">Search History</h3>
+              <p className="text-gray-600 text-sm">Quickly access your recent city searches</p>
+            </div>
+            
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <Smartphone className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">Responsive Design</h3>
+              <p className="text-gray-600 text-sm">Enjoy a seamless experience on any device</p>
+            </div>
+            
+            <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <SunMoon className="h-10 w-10 text-primary mb-3" />
+              <h3 className="font-medium text-gray-800 mb-2">Dark/Light Mode</h3>
+              <p className="text-gray-600 text-sm">Switch between themes for comfortable viewing</p>
+            </div>
+          </div>
+        </section>
+        
+        {/* How to Use Section */}
+        <section className="mt-20 pb-12 animate-fade-up" style={{ animationDelay: "250ms" }}>
+          <h2 className="text-2xl font-medium text-center mb-8 text-gray-800">
+            How to Use
+          </h2>
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 rounded-full p-3 flex-shrink-0">
+                  <Search className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-800 mb-1">Search for a City</h3>
+                  <p className="text-gray-600 text-sm">Type your city name in the search bar at the top of the page and press enter.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 rounded-full p-3 flex-shrink-0">
+                  <Cloud className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-800 mb-1">View Weather Data</h3>
+                  <p className="text-gray-600 text-sm">After searching, you'll see current conditions and a 5-day forecast displayed below.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 rounded-full p-3 flex-shrink-0">
+                  <History className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-800 mb-1">Use Recent Searches</h3>
+                  <p className="text-gray-600 text-sm">Click on any of your recent searches to quickly view weather for that location again.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 rounded-full p-3 flex-shrink-0">
+                  <SunMoon className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-800 mb-1">Toggle Dark/Light Mode</h3>
+                  <p className="text-gray-600 text-sm">Click the mode toggle in the top right corner to switch between dark and light themes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       
       <Footer />
