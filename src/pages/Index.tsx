@@ -7,6 +7,8 @@ import SearchBar from "@/components/SearchBar";
 import WeatherCard from "@/components/WeatherCard";
 import ForecastCard from "@/components/ForecastCard";
 import RecentSearches from "@/components/RecentSearches";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const MAX_RECENT_SEARCHES = 5;
 const STORAGE_KEY = "recent-weather-searches";
@@ -75,7 +77,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <div className="w-full max-w-4xl px-4 py-12 mx-auto">
+      <Navbar />
+      
+      <div className="w-full max-w-4xl px-4 py-12 mx-auto mt-16">
         <header className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-800 mb-2 animate-fade-up">
             Weather <span className="font-normal text-primary">Forecast</span>
@@ -123,10 +127,7 @@ const Index = () => {
         )}
       </div>
       
-      <footer className="py-6 w-full mt-auto text-center text-sm text-gray-500">
-        <p>Weather data provided by OpenWeatherMap</p>
-        <p className="mt-1">© {new Date().getFullYear()} Weather Forecast App</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
