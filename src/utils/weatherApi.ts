@@ -1,20 +1,18 @@
 
 import { CurrentWeather, ForecastData, ForecastItem } from "@/types/weather";
-
-const API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // Replace with your API key
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+import { supabase } from "@/integrations/supabase/client";
 
 export const fetchCurrentWeather = async (city: string): Promise<CurrentWeather> => {
   try {
-    const response = await fetch(
-      `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
+    const { data, error } = await supabase.functions.invoke("weather", {
+      method: "GET",
+      query: { city },
+      path: "current",
+    });
     
-    if (!response.ok) {
-      throw new Error(`City not found`);
+    if (error) {
+      throw new Error(error.message || "City not found");
     }
-    
-    const data = await response.json();
     
     return {
       city: data.name,
@@ -36,15 +34,15 @@ export const fetchCurrentWeather = async (city: string): Promise<CurrentWeather>
 
 export const fetchForecast = async (city: string): Promise<ForecastData> => {
   try {
-    const response = await fetch(
-      `${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`
-    );
+    const { data, error } = await supabase.functions.invoke("weather", {
+      method: "GET",
+      query: { city },
+      path: "forecast",
+    });
     
-    if (!response.ok) {
-      throw new Error(`City not found`);
+    if (error) {
+      throw new Error(error.message || "City not found");
     }
-    
-    const data = await response.json();
     
     // Get one forecast per day (at noon)
     const dailyForecasts: ForecastItem[] = [];
