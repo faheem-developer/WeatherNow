@@ -10,16 +10,14 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    const { city } = await req.json();
     const url = new URL(req.url);
     const path = url.pathname.split('/').pop();
-    const searchParams = new URLSearchParams(url.search);
-    const city = searchParams.get('city');
 
     if (!city) {
       return new Response(
