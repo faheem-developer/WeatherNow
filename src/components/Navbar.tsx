@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { Sun, Moon, CloudSun } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/context/ThemeProvider";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -23,12 +24,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle dark mode would be implemented here
-  // Since we don't have full dark mode implementation, this is a placeholder
+  // Toggle between light and dark mode
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // Actual implementation would add/remove dark class to html element
-    // and update local storage preferences
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -54,7 +52,7 @@ const Navbar = () => {
             className="h-9 w-9 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? (
+            {theme === "dark" ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
