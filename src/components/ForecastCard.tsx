@@ -44,23 +44,23 @@ const ForecastCard = ({ forecast, index }: ForecastCardProps) => {
   const getBackgroundClass = (main: string) => {
     switch (main.toLowerCase()) {
       case "clear":
-        return "from-weather-clear/20 to-transparent";
+        return "from-weather-clear/20 to-transparent dark:from-weather-clear/10";
       case "clouds":
-        return "from-weather-clouds/20 to-transparent";
+        return "from-weather-clouds/20 to-transparent dark:from-weather-clouds/10";
       case "rain":
-        return "from-weather-rain/20 to-transparent";
+        return "from-weather-rain/20 to-transparent dark:from-weather-rain/10";
       case "snow":
-        return "from-weather-snow/20 to-transparent";
+        return "from-weather-snow/20 to-transparent dark:from-weather-snow/10";
       case "thunderstorm":
-        return "from-weather-thunderstorm/20 to-transparent";
+        return "from-weather-thunderstorm/20 to-transparent dark:from-weather-thunderstorm/10";
       case "drizzle":
-        return "from-weather-drizzle/20 to-transparent";
+        return "from-weather-drizzle/20 to-transparent dark:from-weather-drizzle/10";
       case "mist":
       case "fog":
       case "haze":
-        return "from-weather-mist/20 to-transparent";
+        return "from-weather-mist/20 to-transparent dark:from-weather-mist/10";
       default:
-        return "from-blue-100/20 to-transparent";
+        return "from-blue-100/20 to-transparent dark:from-blue-900/10";
     }
   };
 
@@ -80,17 +80,17 @@ const ForecastCard = ({ forecast, index }: ForecastCardProps) => {
 
   return (
     <div 
-      className={`p-4 rounded-xl glass bg-gradient-to-br ${getBackgroundClass(forecast.main)} transition-all duration-300 hover:shadow-md animate-fade-up`}
+      className={`p-4 rounded-xl glass bg-gradient-to-br ${getBackgroundClass(forecast.main)} transition-all duration-300 hover:shadow-md animate-fade-up dark:text-gray-100`}
       style={{ animationDelay: getAnimationDelay() }}
     >
       <div className="flex flex-col items-center">
-        <h3 className="text-sm font-medium mb-2 text-gray-700">{formatDate(forecast.date)}</h3>
+        <h3 className="text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">{formatDate(forecast.date)}</h3>
         {getWeatherIcon(forecast.main)}
         <p className="mt-3 text-xl font-medium">{forecast.temperature}°C</p>
-        <p className="text-xs text-gray-600 mt-1">Feels like {forecast.feels_like}°C</p>
-        <p className="text-sm mt-2 text-gray-700 capitalize text-balance">{forecast.description}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Feels like {forecast.feels_like}°C</p>
+        <p className="text-sm mt-2 text-gray-700 dark:text-gray-300 capitalize text-balance">{forecast.description}</p>
         
-        <div className="flex w-full justify-between mt-3 pt-3 border-t border-white/30 text-xs text-gray-600">
+        <div className="flex w-full justify-between mt-3 pt-3 border-t border-white/30 dark:border-white/10 text-xs text-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-1">
             <Droplets size={12} />
             <span>{forecast.humidity}%</span>
