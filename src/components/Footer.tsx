@@ -17,13 +17,13 @@ const Footer = () => {
           </div>
           
           <div className="flex items-center gap-6">
-            <Link to="#" className="text-sm text-gray-500 hover:text-primary transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-gray-500 hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link to="#" className="text-sm text-gray-500 hover:text-primary transition-colors">
+            <Link to="/terms-of-service" className="text-sm text-gray-500 hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link to="#" className="text-sm text-gray-500 hover:text-primary transition-colors">
+            <Link to="/contact" className="text-sm text-gray-500 hover:text-primary transition-colors">
               Contact
             </Link>
           </div>

@@ -32,7 +32,7 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <CloudSun className="h-6 w-6 text-primary" />
           <span className="font-medium text-xl text-gray-800">
             WeatherNow
